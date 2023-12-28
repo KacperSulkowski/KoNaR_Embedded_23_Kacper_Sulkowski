@@ -7,6 +7,8 @@ Użyte czujniki:
  
 Zadanie zrealizowane w dwóch formach baremetal i RTOS.
 
+Nie wykorzystałem przerwań do obsługi czujnika, bo EXTI13 jest zajęte do obsługi przycisku.
+
 Header z rejestrami HTS221 i danymi typu WHO_AM_I napisany przeze mnie na podstawie datasheeta.
 
 Odczyt danych i interpolacja napisana zgodnie z instrukcją producenta. Wskazania temperatury
