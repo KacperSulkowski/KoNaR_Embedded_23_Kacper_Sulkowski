@@ -213,7 +213,7 @@ void blue_button_pushed(void* param)
 			button_pushed=false;
 			if(xSemaphoreTake(tx_UART_mutex,100))
 			{
-				snprintf((char*)buffer_button_UART, sizeof(buffer_button_UART), "ALLERT: BUTTON PUSHED!!! Counter: %u\n\r",button_push_counter);
+				snprintf((char*)buffer_button_UART, sizeof(buffer_button_UART), "ALLERT: BUTTON PUSHED!!! Counter:  %u\n\r",button_push_counter);
 				HAL_UART_Transmit_IT(&huart2, buffer_button_UART, strlen((char*)buffer_button_UART));
 			}
 
@@ -332,8 +332,8 @@ void hts221_init()
 void hts221_data_read()
 {
 	hts221_read_IT(HTS221_TEMP_OUT_H, &buffer_tmp[1], 1);
-	hts221_read_IT(HTS221_TEMP_OUT_L, &buffer_tmp[0], 1);
 	hts221_read_IT(HTS221_HUMIDITY_OUT_H, &buffer_hmdt[1], 1);
+	hts221_read_IT(HTS221_TEMP_OUT_L, &buffer_tmp[0], 1);
 	hts221_read_IT(HTS221_HUMIDITY_OUT_L, &buffer_hmdt[0], 1);
 }
 

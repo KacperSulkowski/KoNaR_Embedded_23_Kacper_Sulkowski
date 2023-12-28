@@ -1450,7 +1450,7 @@ void tx_button_pushed_UART_alert()
 {
  8001098:	b580      	push	{r7, lr}
  800109a:	af00      	add	r7, sp, #0
-	snprintf((char*)buffer_button_UART, sizeof(buffer_button_UART), "ALLERT: BUTTON PUSHED!!! Counter: %u\n\r",button_push_counter);
+	snprintf((char*)buffer_button_UART, sizeof(buffer_button_UART), "ALLERT: BUTTON PUSHED!!! Counter:  %u\n\r",button_push_counter);
  800109c:	4b09      	ldr	r3, [pc, #36]	; (80010c4 <tx_button_pushed_UART_alert+0x2c>)
  800109e:	781b      	ldrb	r3, [r3, #0]
  80010a0:	b2db      	uxtb	r3, r3
@@ -1858,15 +1858,15 @@ void hts221_data_read()
  800137a:	490a      	ldr	r1, [pc, #40]	; (80013a4 <hts221_data_read+0x30>)
  800137c:	202b      	movs	r0, #43	; 0x2b
  800137e:	f7ff fea9 	bl	80010d4 <hts221_read>
-	hts221_read(HTS221_TEMP_OUT_L, &buffer_tmp[0], 1);
+	hts221_read(HTS221_HUMIDITY_OUT_H, &buffer_hmdt[1], 1);
  8001382:	2201      	movs	r2, #1
  8001384:	4908      	ldr	r1, [pc, #32]	; (80013a8 <hts221_data_read+0x34>)
- 8001386:	202a      	movs	r0, #42	; 0x2a
+ 8001386:	2029      	movs	r0, #41	; 0x29
  8001388:	f7ff fea4 	bl	80010d4 <hts221_read>
-	hts221_read(HTS221_HUMIDITY_OUT_H, &buffer_hmdt[1], 1);
+	hts221_read(HTS221_TEMP_OUT_L, &buffer_tmp[0], 1);
  800138c:	2201      	movs	r2, #1
  800138e:	4907      	ldr	r1, [pc, #28]	; (80013ac <hts221_data_read+0x38>)
- 8001390:	2029      	movs	r0, #41	; 0x29
+ 8001390:	202a      	movs	r0, #42	; 0x2a
  8001392:	f7ff fe9f 	bl	80010d4 <hts221_read>
 	hts221_read(HTS221_HUMIDITY_OUT_L, &buffer_hmdt[0], 1);
  8001396:	2201      	movs	r2, #1
@@ -1877,8 +1877,8 @@ void hts221_data_read()
  80013a0:	bf00      	nop
  80013a2:	bd80      	pop	{r7, pc}
  80013a4:	20000275 	.word	0x20000275
- 80013a8:	20000274 	.word	0x20000274
- 80013ac:	20000279 	.word	0x20000279
+ 80013a8:	20000279 	.word	0x20000279
+ 80013ac:	20000274 	.word	0x20000274
  80013b0:	20000278 	.word	0x20000278
 
 080013b4 <hts221_UART_data_tx>:
