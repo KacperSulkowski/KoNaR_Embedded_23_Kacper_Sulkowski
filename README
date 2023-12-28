@@ -1,0 +1,25 @@
+Użyta płytka prototypowa:
+ -Nucleo-L476RG
+
+Użyte czujniki:
+ -Nucleo MEMS IKS01A2 - HTS221
+  (zworki w standardowej konfiguracji z datasheeta)
+ 
+Zadanie zrealizowane w dwóch formach baremetal i RTOS.
+
+Header z rejestrami HTS221 i danymi typu WHO_AM_I napisany przeze mnie na podstawie datasheeta.
+
+Odczyt danych i interpolacja napisana zgodnie z instrukcją producenta. Wskazania temperatury
+zgodne z pomiarami temperatury płytki termometrem na podczerwień.
+
+!!!Uwaga!!!
+
+Nie wiem, czy to wina zepsutego czujnika, czy mojej niewiedzy, ale wskazania wilgotności
+są dziwne. W suchym pomieszczeniu dane (odczytane prosto z czujnika) prawie zapełniają
+16 bitów. Gdy się chuchnie na czujnik to wartości wskazań spadają. Współczynnik
+kierunkowy prostej interpolacji jest ewidentnie dodatni.
+Moje pomysły się skończyły, więc po prostu odejmuję wynik od 100%,
+co daje już bardziej wiarygodny efekt. Moje oszustwo jest oznaczone w kodzie wielkim komentarzem ;). 
+Liczę na odpowiedź zwrotną, co skopałem. :D
+
+ 
